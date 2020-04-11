@@ -1,0 +1,20 @@
+import pandas as pd
+
+path = 'C:/Users/User/Desktop/Projeto/GG.csv'
+planilha = pd.read_csv(path)
+
+A = list(planilha.A)
+ID = list(planilha.ID)
+r_auto = list(planilha.r_auto)
+er_auto = list(planilha.er_auto)
+PF = list(planilha.PhotoFlag)
+Adec = sorted(A, reverse=True)
+X = Adec[100]
+
+import shutil
+import os
+
+Dfl = pd.DataFrame({'ID': ID,'A': A, 'r_auto': r_auto, 'er_auto': er_auto, 'PhotoFlag': PF})
+
+cem = Dfl[Dfl['A']>X]
+IDl = list (cem ['ID'])
